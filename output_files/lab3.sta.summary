@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'cpu:board_map|control:cu|current_state.T2'
+Slack : -5.637
+TNS   : -96.363
+
+Type  : Slow 1100mV 85C Model Setup 'KEY[3]'
+Slack : -5.227
+TNS   : -356.639
+
+Type  : Slow 1100mV 85C Model Hold 'KEY[3]'
+Slack : -1.847
+TNS   : -54.399
+
+Type  : Slow 1100mV 85C Model Hold 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.576
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.394
+TNS   : -48.402
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.309
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'cpu:board_map|control:cu|current_state.T2'
+Slack : -5.712
+TNS   : -97.741
+
+Type  : Slow 1100mV 0C Model Setup 'KEY[3]'
+Slack : -4.990
+TNS   : -339.384
+
+Type  : Slow 1100mV 0C Model Hold 'KEY[3]'
+Slack : -1.961
+TNS   : -60.068
+
+Type  : Slow 1100mV 0C Model Hold 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.398
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.394
+TNS   : -50.296
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'KEY[3]'
+Slack : -3.172
+TNS   : -206.031
+
+Type  : Fast 1100mV 85C Model Setup 'cpu:board_map|control:cu|current_state.T2'
+Slack : -2.732
+TNS   : -43.909
+
+Type  : Fast 1100mV 85C Model Hold 'KEY[3]'
+Slack : -1.140
+TNS   : -33.799
+
+Type  : Fast 1100mV 85C Model Hold 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.336
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.093
+TNS   : -8.278
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.310
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'KEY[3]'
+Slack : -2.564
+TNS   : -162.872
+
+Type  : Fast 1100mV 0C Model Setup 'cpu:board_map|control:cu|current_state.T2'
+Slack : -2.557
+TNS   : -41.276
+
+Type  : Fast 1100mV 0C Model Hold 'KEY[3]'
+Slack : -1.174
+TNS   : -37.753
+
+Type  : Fast 1100mV 0C Model Hold 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.308
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[3]'
+Slack : -0.093
+TNS   : -8.282
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'cpu:board_map|control:cu|current_state.T2'
+Slack : 0.337
+TNS   : 0.000
+
+------------------------------------------------------------

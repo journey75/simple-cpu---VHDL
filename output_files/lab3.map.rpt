@@ -1,0 +1,632 @@
+Analysis & Synthesis report for lab3
+Mon Mar 29 16:25:54 2021
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |cpu_board|cpu:board_map|control:cu|current_state
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: cpu:board_map
+ 13. Parameter Settings for User Entity Instance: cpu:board_map|mux:mx
+ 14. Parameter Settings for User Entity Instance: cpu:board_map|register_single:Areg
+ 15. Parameter Settings for User Entity Instance: cpu:board_map|adder:addd
+ 16. Parameter Settings for User Entity Instance: cpu:board_map|register_single:Greg
+ 17. Parameter Settings for User Entity Instance: cpu:board_map|register_single:IRreg
+ 18. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r7
+ 19. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r6
+ 20. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r5
+ 21. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r4
+ 22. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r3
+ 23. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r2
+ 24. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r1
+ 25. Parameter Settings for User Entity Instance: cpu:board_map|register_single:r0
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Mar 29 16:25:54 2021           ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name                   ; lab3                                            ;
+; Top-level Entity Name           ; cpu_board                                       ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 92                                              ;
+; Total pins                      ; 24                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 0                                               ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; cpu_board          ; lab3               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                           ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                    ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+; cpu.vhd                          ; yes             ; User VHDL File  ; /users/dherlon/Desktop/lab3/cpu.vhd             ;         ;
+; adder.vhd                        ; yes             ; User VHDL File  ; /users/dherlon/Desktop/lab3/adder.vhd           ;         ;
+; control.vhd                      ; yes             ; User VHDL File  ; /users/dherlon/Desktop/lab3/control.vhd         ;         ;
+; register_single.vhd              ; yes             ; User VHDL File  ; /users/dherlon/Desktop/lab3/register_single.vhd ;         ;
+; mux.vhd                          ; yes             ; User VHDL File  ; /users/dherlon/Desktop/lab3/mux.vhd             ;         ;
+; cpu_board.vhd                    ; yes             ; User VHDL File  ; /users/dherlon/Desktop/lab3/cpu_board.vhd       ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 101          ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 134          ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 59           ;
+;     -- 5 input functions                    ; 21           ;
+;     -- 4 input functions                    ; 9            ;
+;     -- <=3 input functions                  ; 45           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 92           ;
+;                                             ;              ;
+; I/O pins                                    ; 24           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[3]~input ;
+; Maximum fan-out                             ; 92           ;
+; Total fan-out                               ; 939          ;
+; Average fan-out                             ; 3.43         ;
++---------------------------------------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
++-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Entity Name     ; Library Name ;
++-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------+-----------------+--------------+
+; |cpu_board                    ; 134 (0)           ; 92 (0)       ; 0                 ; 0          ; 24   ; 0            ; |cpu_board                                     ; cpu_board       ; work         ;
+;    |cpu:board_map|            ; 134 (0)           ; 92 (0)       ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map                       ; cpu             ; work         ;
+;       |adder:addd|            ; 9 (9)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|adder:addd            ; adder           ; work         ;
+;       |control:cu|            ; 56 (56)           ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|control:cu            ; control         ; work         ;
+;       |mux:mx|                ; 69 (69)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|mux:mx                ; mux             ; work         ;
+;       |register_single:Areg|  ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:Areg  ; register_single ; work         ;
+;       |register_single:Greg|  ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:Greg  ; register_single ; work         ;
+;       |register_single:IRreg| ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:IRreg ; register_single ; work         ;
+;       |register_single:r0|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r0    ; register_single ; work         ;
+;       |register_single:r1|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r1    ; register_single ; work         ;
+;       |register_single:r2|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r2    ; register_single ; work         ;
+;       |register_single:r3|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r3    ; register_single ; work         ;
+;       |register_single:r4|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r4    ; register_single ; work         ;
+;       |register_single:r5|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r5    ; register_single ; work         ;
+;       |register_single:r6|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r6    ; register_single ; work         ;
+;       |register_single:r7|    ; 0 (0)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |cpu_board|cpu:board_map|register_single:r7    ; register_single ; work         ;
++-------------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------+
+; State Machine - |cpu_board|cpu:board_map|control:cu|current_state                            ;
++------------------+------------------+------------------+------------------+------------------+
+; Name             ; current_state.T3 ; current_state.T2 ; current_state.T1 ; current_state.T0 ;
++------------------+------------------+------------------+------------------+------------------+
+; current_state.T0 ; 0                ; 0                ; 0                ; 0                ;
+; current_state.T1 ; 0                ; 0                ; 1                ; 1                ;
+; current_state.T2 ; 0                ; 1                ; 0                ; 1                ;
+; current_state.T3 ; 1                ; 0                ; 0                ; 1                ;
++------------------+------------------+------------------+------------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; cpu:board_map|control:cu|DINout                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[0]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[1]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[2]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[3]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[4]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[5]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[6]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rout[7]                    ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Gout                       ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|done                       ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[7]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[6]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[5]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[4]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[3]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[2]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[1]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Rin[0]                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Gin                        ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|IRin                       ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|addsub                     ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; cpu:board_map|control:cu|Ain                        ; cpu:board_map|control:cu|Selector6 ; yes                    ;
+; Number of user-specified and inferred latches = 23  ;                                    ;                        ;
++-----------------------------------------------------+------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 92    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 88    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cpu_board|cpu:board_map|control:cu|Rout[2] ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |cpu_board|cpu:board_map|mux:mx|Selector7   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; width          ; 8     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|mux:mx ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; width          ; 8     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:Areg ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|adder:addd ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; width          ; 8     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:Greg ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:IRreg ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r7 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r6 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r5 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r4 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r3 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r2 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r1 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:board_map|register_single:r0 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; width          ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 92                          ;
+;     CLR               ; 4                           ;
+;     ENA               ; 88                          ;
+; arriav_lcell_comb     ; 135                         ;
+;     arith             ; 9                           ;
+;         1 data inputs ; 1                           ;
+;         3 data inputs ; 8                           ;
+;     normal            ; 126                         ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 30                          ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 21                          ;
+;         6 data inputs ; 59                          ;
+; boundary_port         ; 24                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.70                        ;
+; Average LUT depth     ; 3.73                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+    Info: Processing started: Mon Mar 29 16:25:37 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab3 -c lab3
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
+    Info (12022): Found design unit 1: cpu-main File: /users/dherlon/Desktop/lab3/cpu.vhd Line: 19
+    Info (12023): Found entity 1: cpu File: /users/dherlon/Desktop/lab3/cpu.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file adder.vhd
+    Info (12022): Found design unit 1: adder-add File: /users/dherlon/Desktop/lab3/adder.vhd Line: 18
+    Info (12023): Found entity 1: adder File: /users/dherlon/Desktop/lab3/adder.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file control.vhd
+    Info (12022): Found design unit 1: control-controller File: /users/dherlon/Desktop/lab3/control.vhd Line: 40
+    Info (12023): Found entity 1: control File: /users/dherlon/Desktop/lab3/control.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file register_single.vhd
+    Info (12022): Found design unit 1: register_single-behavior File: /users/dherlon/Desktop/lab3/register_single.vhd Line: 18
+    Info (12023): Found entity 1: register_single File: /users/dherlon/Desktop/lab3/register_single.vhd Line: 7
+Warning (12090): Entity "mux" obtained from "mux.vhd" instead of from Quartus Prime megafunction library File: /users/dherlon/Desktop/lab3/mux.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
+    Info (12022): Found design unit 1: mux-mixed File: /users/dherlon/Desktop/lab3/mux.vhd Line: 29
+    Info (12023): Found entity 1: mux File: /users/dherlon/Desktop/lab3/mux.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file cpu_board.vhd
+    Info (12022): Found design unit 1: cpu_board-board File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 17
+    Info (12023): Found entity 1: cpu_board File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 4
+Info (12127): Elaborating entity "cpu_board" for the top level hierarchy
+Warning (10873): Using initial value X (don't care) for net "LEDR[8]" at cpu_board.vhd(7) File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 7
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:board_map" File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 31
+Info (12128): Elaborating entity "control" for hierarchy "cpu:board_map|control:cu" File: /users/dherlon/Desktop/lab3/cpu.vhd Line: 114
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "IRin", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "Rout", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "Rin", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "done", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "DINout", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "Ain", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "Gin", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "Gout", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Warning (10631): VHDL Process Statement warning at control.vhd(163): inferring latch(es) for signal or variable "addsub", which holds its previous value in one or more paths through the process File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "addsub" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Gout" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Gin" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Ain" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "DINout" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "done" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[0]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[1]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[2]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[3]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[4]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[5]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[6]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rin[7]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[0]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[1]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[2]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[3]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[4]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[5]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[6]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "Rout[7]" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (10041): Inferred latch for "IRin" at control.vhd(163) File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+Info (12128): Elaborating entity "mux" for hierarchy "cpu:board_map|mux:mx" File: /users/dherlon/Desktop/lab3/cpu.vhd Line: 129
+Info (12128): Elaborating entity "register_single" for hierarchy "cpu:board_map|register_single:Areg" File: /users/dherlon/Desktop/lab3/cpu.vhd Line: 144
+Warning (10492): VHDL Process Statement warning at register_single.vhd(24): signal "rvalid" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /users/dherlon/Desktop/lab3/register_single.vhd Line: 24
+Info (12128): Elaborating entity "adder" for hierarchy "cpu:board_map|adder:addd" File: /users/dherlon/Desktop/lab3/cpu.vhd Line: 152
+Warning (13012): Latch cpu:board_map|control:cu|DINout has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|register_single:IRreg|q[7] File: /users/dherlon/Desktop/lab3/register_single.vhd Line: 24
+Warning (13012): Latch cpu:board_map|control:cu|Rout[0] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rout[1] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rout[2] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rout[3] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rout[4] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rout[5] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rout[6] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rout[7] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Gout has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 26
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|done has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[7] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[6] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[5] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[4] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[3] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[2] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[1] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Rin[0] has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 163
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T3 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Gin has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|addsub has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 30
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|control:cu|current_state.T2 File: /users/dherlon/Desktop/lab3/control.vhd Line: 43
+Warning (13012): Latch cpu:board_map|control:cu|Ain has unsafe behavior File: /users/dherlon/Desktop/lab3/control.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:board_map|register_single:IRreg|q[7] File: /users/dherlon/Desktop/lab3/register_single.vhd Line: 24
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 7
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 6
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 6
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /users/dherlon/Desktop/lab3/cpu_board.vhd Line: 6
+Info (21057): Implemented 240 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 216 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 63 warnings
+    Info: Peak virtual memory: 1342 megabytes
+    Info: Processing ended: Mon Mar 29 16:25:54 2021
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:22
+
+
